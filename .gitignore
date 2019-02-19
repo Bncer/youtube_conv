@@ -1,6 +1,7 @@
+.gitignore
 *.pyc
 __pycache__
-passwords.py
+.env
 
 
 
