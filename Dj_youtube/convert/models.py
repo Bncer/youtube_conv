@@ -11,6 +11,7 @@ class History(models.Model):
     def download_song(song_url):
         ydl_opts = {
             'format': 'bestaudio/best',
+            'noplaylist' : True,
             'postprocessors': [
                 {'key': 'FFmpegExtractAudio',
                  'preferredcodec': 'mp3',
@@ -23,3 +24,4 @@ class History(models.Model):
 
     def __str__(self):
         return self.history_text
+

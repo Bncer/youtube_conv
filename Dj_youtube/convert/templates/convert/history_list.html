@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+    <h1>History of youtube URLs</h1>
+    {% if all_history_list %}
+        <ul>
+            {% for history in all_history_list %}
+            <li>{{ history.history_text }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No history are available</p>
+    {% endif %}
+</body>
+</html>
+

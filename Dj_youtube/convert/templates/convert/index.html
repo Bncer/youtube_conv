@@ -3,15 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>onlineconverter</title>
-    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="style.css">-->
   </head>
   <body>
     <h1>Enter youtube url</h1>
 
-    <form action="" method="post">
-      URL <input type="text" name="url">
-      <input type="button" value="Download" name="download">
+    <form class="url_part" action="" method="post">
+      URL: <input type="text" name="url">
+          <input type="submit" value="Submit" name="submit">
     </form>
+
+    <form>
+      <input type="submit" value="Download" name="download">
+    </form>
+
+    <form class="hist_button" action="{% url 'convert:history' %}">
+        <input type="submit" value="History" name="hist">
+    </form>
+
   </body>
 </html>
 
