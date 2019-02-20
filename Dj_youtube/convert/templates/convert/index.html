@@ -9,6 +9,7 @@
     <h1>Enter youtube url</h1>
 
     <form class="url_part" action="" method="post">
+      {% csrf_token %}
       URL: <input type="text" name="url">
           <input type="submit" value="Submit" name="submit">
     </form>
@@ -20,6 +21,7 @@
     <form class="hist_button" action="{% url 'convert:history' %}">
         <input type="submit" value="History" name="hist">
     </form>
+
 
   </body>
 </html>
