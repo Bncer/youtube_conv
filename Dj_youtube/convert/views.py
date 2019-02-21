@@ -5,28 +5,26 @@ from django.views import generic
 # Create your views here.
 
 
-class IndexView(generic.TemplateView):
-
-
-    def get(self, request):
+def index(request):
+    if request.method == 'GET':
         template_name = 'convert/index.html'
         return render(request, template_name)
 
-    def post(self, request):
-        print(request.POST)
+    elif request.method == 'POST':
+        #print(request.POST)
         urls = request.POST['url']
+        #title = request(title__regex=r'Destination: (.*.mp3)')
         History.download_song(urls, urls)
-        History.save_to_db(urls, urls)
+        #History.save_to_db(urls, urls)
         return HttpResponse("Good")
+    else:
+        pass
 
 
-class HistoryView(generic.ListView):
-    model = History
-    template_name = 'convert/history_list.html'
-    context_object_name = 'all_history_list'
-
-    def get_queryset(self):
-        return History.objects.all()
+def history(request):
+    all_history_list = History.objects.all()
+    context = {'all_history_list': all_history_list}
+    return render(request, 'convert/history_list.html', context)
 
 
 

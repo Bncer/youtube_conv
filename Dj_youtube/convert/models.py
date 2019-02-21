@@ -6,19 +6,18 @@ import youtube_dl
 
 
 class History(models.Model):
-    history_text = models.CharField(max_length=200)
+    history_url = models.CharField(max_length=200)
+    history_title = models.TextField(null=True)
 
     def __str__(self):
-        return self.history_text
+        return self.history_title
 
-    def save_to_db(self, url_to_save):
-        q = History(history_text=url_to_save)
-        q.save()
 
     def download_song(self, song_url):
         ydl_opts = {
             'format': 'bestaudio/best',
-            'noplaylist' : True,
+            'noplaylist': True,
+            'forcetitle': True,
             'postprocessors': [
                 {'key': 'FFmpegExtractAudio',
                  'preferredcodec': 'mp3',
@@ -27,6 +26,9 @@ class History(models.Model):
         }
 
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([song_url])
+            meta = ydl.extract_info(song_url, download=True)
+            q = History(history_url=song_url, history_title=meta['title'])
+            q.save()
+
 
 

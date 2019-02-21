@@ -5,8 +5,8 @@ from . import views
 
 app_name = 'convert'
 urlpatterns = [
-        path('', views.IndexView.as_view(), name='index'),
-        path('history/', views.HistoryView.as_view(), name='history')
+        path('', views.index, name='index'),
+        path('history/', views.history, name='history')
 ]
 
 

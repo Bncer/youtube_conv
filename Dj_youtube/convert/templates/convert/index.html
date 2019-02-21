@@ -11,17 +11,12 @@
     <form class="url_part" action="" method="post">
       {% csrf_token %}
       URL: <input type="text" name="url">
-          <input type="submit" value="Submit" name="submit">
-    </form>
-
-    <form>
-      <input type="submit" value="Download" name="download">
+          <input type="submit" value="Download" name="download">
     </form>
 
     <form class="hist_button" action="{% url 'convert:history' %}">
         <input type="submit" value="History" name="hist">
     </form>
-
 
   </body>
 </html>
