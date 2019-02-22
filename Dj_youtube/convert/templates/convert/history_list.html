@@ -9,7 +9,7 @@
     {% if all_history_list %}
         <ul>
             {% for history in all_history_list %}
-            <li>{{ history.history_text }}</li>
+            <li><a href="{{ history.history_title }}">{{ history.history_title }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
@@ -17,4 +17,3 @@
     {% endif %}
 </body>
 </html>
-
