@@ -3,14 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>onlineconverter</title>
-    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+      h1,
+      form {
+      text-align: center;
+      margin: 100px;
+      }
+      .url_holder {
+      width: 300px;
+      }
+    </style>
   </head>
   <body>
     <h1>Enter youtube url</h1>
 
     <form class="url_part" action="" method="post">
       {% csrf_token %}
-      URL: <input type="text" name="url">
+      URL: <input class="url_holder" type="text" name="url">
           <input type="submit" value="Download" name="download">
     </form>
 
