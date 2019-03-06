@@ -1,10 +1,4 @@
 import youtube_dl
-from .models import History
-
-locals()
-def save_in_history(song_url, meta_data):
-    history = History(history_url=song_url, history_title=meta_data['title'])
-    history.save()
 
 
 def youdl_manage(url):

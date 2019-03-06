@@ -13,7 +13,7 @@ def home(request):
         try:
             if urls[0:23] == 'https://www.youtube.com':
                 meta = service.youdl_manage(urls)
-                service.save_in_history(urls, meta)
+                History.objects.create(history_url=urls, history_title=meta['title'])
                 return HttpResponse("You have downloaded")
             else:
                 pass
