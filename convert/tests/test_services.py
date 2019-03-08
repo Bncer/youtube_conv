@@ -2,7 +2,7 @@ from django.test import TestCase
 from unittest.mock import patch, MagicMock
 
 from convert.service import youdl_manage
-from convert.models import  History
+from convert.models import History
 
 
 class TemplateTests(TestCase):
@@ -10,7 +10,7 @@ class TemplateTests(TestCase):
     def test_download_youdl(self, mocked_youtube):
         youdl_manage('url')
         mocked_youtube.YoutubeDL.assert_called_once()
-        youtube_object = History.objects.get(history_url="url")
+        youtube_object = History.objects.get(history_url="url", history_title='title')
         print(youtube_object)
         #check_history = History.objects.all()
         #self.assertEquals(response, 'downloaded')
