@@ -13,3 +13,4 @@ class TemplateTests(TestCase):
         url_to_check = youtube_object.history_url
         mocked_youtube.YoutubeDL.assert_called_once()
         self.assertEquals(url_to_check, 'url')
+
