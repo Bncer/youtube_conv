@@ -3,21 +3,20 @@
   <link>
     <meta charset="utf-8">
     <title>onlineconverter</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!--<link rel="stylesheet" type="text/css" href="../convert/templates/convert/css/style.css">-->
   </head>
   <body>
     <h1>Enter youtube url</h1>
 
     <form class="url_part" action="" method="post">
       {% csrf_token %}
-      URL: <input class="url_holder" type="text" name="url">
+      URL: <input class="url_holder" type="url" name="url" placeholder="https://youtube.com..." pattern="https://youtube.com.*" required>
           <input type="submit" value="Download" name="download">
     </form>
 
     <form class="hist_button" action="{% url 'convert:history' %}">
         <input type="submit" value="History" name="hist">
     </form>
-
   </body>
 </html>
 
